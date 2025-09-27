@@ -1,0 +1,444 @@
+<div class="min-h-screen bg-neutral-950 text-white selection:bg-pink-500/30 selection:text-white">
+  <!-- Topbar -->
+  <header
+    class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/80 border-b border-white/10"
+  >
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
+      <a href="#" class="group inline-flex items-center gap-2">
+        <div
+          class="h-8 w-8 rounded-xl bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 ring-2 ring-pink-400/50 glow-pink"
+        ></div>
+        <span class="text-lg font-semibold tracking-tight">
+          Festiva <span class="text-pink-400 glow-soft">Clubs</span>
+        </span>
+      </a>
+
+      <div class="ml-auto hidden md:flex items-center gap-3">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Buscar clubs, barrios…"
+            class="w-72 rounded-xl bg-neutral-900/80 border border-white/10 px-4 py-2.5 pr-10 placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-pink-500/60"
+          />
+          <svg
+            class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-4.23A6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79L20 21.5 21.5 20l-6-6zM4 9.5A5.5 5.5 0 1 1 9.5 15 5.506 5.506 0 0 1 4 9.5Z"
+            />
+          </svg>
+        </div>
+        <a href="#" class="btn-primary">Registrar club</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-60">
+      <div
+        class="absolute -top-24 -left-32 h-72 w-72 rounded-full blur-3xl"
+        style="
+          background: radial-gradient(60% 60% at 50% 50%, rgba(244, 63, 94, 0.55), transparent 70%);
+        "
+      ></div>
+      <div
+        class="absolute -bottom-24 -right-32 h-72 w-72 rounded-full blur-3xl"
+        style="
+          background: radial-gradient(
+            60% 60% at 50% 50%,
+            rgba(168, 85, 247, 0.45),
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 py-10 md:py-14 relative">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            Clubs y <span class="text-pink-400 glow-soft">nightlife</span> de Oslo
+          </h1>
+          <p class="mt-2 max-w-xl text-neutral-300">
+            Explora salas icónicas, bares con pista y venues emergentes. Música, luces y buenas
+            historias.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          <button class="chip">Centro</button>
+          <button class="chip">Grünerløkka</button>
+          <button class="chip">Majorstuen</button>
+          <button class="chip">Aker Brygge</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters bar -->
+  <div class="border-y border-white/10 bg-neutral-950/60 sticky top-[56px] z-40">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex flex-wrap items-center gap-2">
+      <span class="text-sm text-neutral-400">Géneros:</span>
+      <div class="flex gap-2 overflow-x-auto no-scrollbar">
+        <button class="chip">Techno</button>
+        <button class="chip">House</button>
+        <button class="chip">Disco</button>
+        <button class="chip">Hip-Hop</button>
+        <button class="chip">Latin</button>
+        <button class="chip">Pop</button>
+        <button class="chip">Indie</button>
+        <button class="chip">Funk</button>
+      </div>
+
+      <div class="ml-auto flex items-center gap-2">
+        <button class="btn-muted">Abiertos ahora</button>
+        <button class="btn-muted">Ordenar: Popularidad</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured clubs (snap) -->
+  <section class="mx-auto max-w-7xl px-4 py-8">
+    <h2 class="mb-4 text-lg font-semibold tracking-tight">Destacados</h2>
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 no-scrollbar">
+      <!-- Feature card -->
+      <article
+        class="min-w-[85%] sm:min-w-[60%] lg:min-w-[40%] snap-start relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10"
+      >
+        <div class="relative aspect-[16/7]">
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1600&auto=format&fit=crop"
+            alt="Club cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-transparent"
+          ></div>
+
+          <div class="absolute left-4 right-4 bottom-4">
+            <div class="flex items-end gap-3">
+              <img
+                class="h-14 w-14 rounded-xl ring-2 ring-white/20 object-cover"
+                src="https://images.unsplash.com/photo-1609921141837-3c4df0b3c2e1?q=80&w=240&auto=format&fit=crop"
+                alt="Logo"
+              />
+              <div class="flex-1">
+                <h3 class="text-xl font-bold">SALT — Art & Music</h3>
+                <p class="text-sm text-neutral-300">Aker Brygge • Vista al fiordo</p>
+              </div>
+              <span class="badge-green">Abierto ahora</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Otra -->
+      <article
+        class="min-w-[85%] sm:min-w-[60%] lg:min-w-[40%] snap-start relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10"
+      >
+        <div class="relative aspect-[16/7]">
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop"
+            alt="Club cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-transparent"
+          ></div>
+
+          <div class="absolute left-4 right-4 bottom-4">
+            <div class="flex items-end gap-3">
+              <img
+                class="h-14 w-14 rounded-xl ring-2 ring-white/20 object-cover"
+                src="https://images.unsplash.com/photo-1541534401786-2077eed87a4b?q=80&w=240&auto=format&fit=crop"
+                alt="Logo"
+              />
+              <div class="flex-1">
+                <h3 class="text-xl font-bold">Rockefeller</h3>
+                <p class="text-sm text-neutral-300">Sentrum • Escenario legendario</p>
+              </div>
+              <span class="badge-pink">Entradas hoy</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Grid de clubs -->
+  <main class="mx-auto max-w-7xl px-4 pb-14">
+    <div class="mb-4 flex items-center justify-between">
+      <p class="text-sm text-neutral-400">
+        Mostrando <span class="text-white font-medium">12</span> de 96 clubs
+      </p>
+      <div class="hidden sm:flex items-center gap-2">
+        <button class="pill">Mapa</button>
+        <button class="pill-active">Lista</button>
+      </div>
+    </div>
+
+    <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Club Card (maqueta) -->
+      <!-- 1 -->
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
+        <!-- Cover -->
+        <div class="relative aspect-[16/9]">
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1600&auto=format&fit=crop"
+            alt="Club cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"
+          ></div>
+
+          <!-- Logo flotante -->
+          <div class="absolute left-4 -bottom-6">
+            <img
+              class="h-14 w-14 rounded-xl ring-2 ring-white/20 object-cover"
+              src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=240&auto=format&fit=crop"
+              alt="Logo"
+            />
+          </div>
+
+          <!-- Chip géneros -->
+          <div class="absolute right-3 bottom-3">
+            <span class="tag">Techno</span>
+            <span class="tag">House</span>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="p-4 pt-8">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold tracking-tight">Jaeger Oslo</h3>
+              <p class="mt-1 text-sm text-neutral-300">Centro • Pista íntima</p>
+            </div>
+            <span class="badge-green">Abierto ahora</span>
+          </div>
+
+          <div class="mt-3 flex items-center gap-3 text-xs text-neutral-300">
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"
+                />
+              </svg>
+              12.3k seguidores
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 8a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0-6a9 9 0 0 1 9 9c0 7-9 13-9 13S3 18 3 11a9 9 0 0 1 9-9Z"
+                />
+              </svg>
+              Prinsens gate
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
+              </svg>
+              8 eventos esta semana
+            </span>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2">
+            <a href="#" class="btn-primary">Ver eventos</a>
+            <button class="btn-muted">Seguir</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
+        <div class="relative aspect-[16/9]">
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1600&auto=format&fit=crop"
+            alt="Club cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"
+          ></div>
+          <div class="absolute left-4 -bottom-6">
+            <img
+              class="h-14 w-14 rounded-xl ring-2 ring-white/20 object-cover"
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=240&auto=format&fit=crop"
+              alt="Logo"
+            />
+          </div>
+          <div class="absolute right-3 bottom-3">
+            <span class="tag">Disco</span>
+            <span class="tag">Funk</span>
+          </div>
+        </div>
+
+        <div class="p-4 pt-8">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold tracking-tight">Hør Hør</h3>
+              <p class="mt-1 text-sm text-neutral-300">Grünerløkka • Buen groove</p>
+            </div>
+            <span class="badge-pink">Jueves a domingo</span>
+          </div>
+
+          <div class="mt-3 flex items-center gap-3 text-xs text-neutral-300">
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"
+                />
+              </svg>
+              7.8k seguidores
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 8a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0-6a9 9 0 0 1 9 9c0 7-9 13-9 13S3 18 3 11a9 9 0 0 1 9-9Z"
+                />
+              </svg>
+              Markveien
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
+              </svg>
+              3 eventos hoy
+            </span>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2">
+            <a href="#" class="btn-primary">Ver eventos</a>
+            <button class="btn-muted">Seguir</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 (otro ejemplo) -->
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
+        <div class="relative aspect-[16/9]">
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?q=80&w=1600&auto=format&fit=crop"
+            alt="Club cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"
+          ></div>
+          <div class="absolute left-4 -bottom-6">
+            <img
+              class="h-14 w-14 rounded-xl ring-2 ring-white/20 object-cover"
+              src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?q=80&w=240&auto=format&fit=crop"
+              alt="Logo"
+            />
+          </div>
+          <div class="absolute right-3 bottom-3">
+            <span class="tag">Latin</span>
+            <span class="tag">Pop</span>
+          </div>
+        </div>
+
+        <div class="p-4 pt-8">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold tracking-tight">The Broker</h3>
+              <p class="mt-1 text-sm text-neutral-300">Sentrum • Clásicos que prenden</p>
+            </div>
+            <span class="badge-muted">Cierra 02:00</span>
+          </div>
+
+          <div class="mt-3 flex items-center gap-3 text-xs text-neutral-300">
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"
+                />
+              </svg>
+              5.2k seguidores
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path
+                  fill="currentColor"
+                  d="M12 8a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0-6a9 9 0 0 1 9 9c0 7-9 13-9 13S3 18 3 11a9 9 0 0 1 9-9Z"
+                />
+              </svg>
+              Karl Johans gate
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <svg viewBox="0 0 24 24" class="h-4 w-4">
+                <path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
+              </svg>
+              4 eventos esta semana
+            </span>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2">
+            <a href="#" class="btn-primary">Ver eventos</a>
+            <button class="btn-muted">Seguir</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- duplica más cards… -->
+    </section>
+
+    <!-- Pagination (mock) -->
+    <nav class="mt-10 flex items-center justify-center">
+      <ul class="flex flex-wrap items-center gap-2 text-sm">
+        <li><a href="#" class="btn">« Primera</a></li>
+        <li><a href="#" class="btn">‹ Anterior</a></li>
+        <li><a href="#" class="page active">1</a></li>
+        <li><a href="#" class="page">2</a></li>
+        <li><a href="#" class="page">3</a></li>
+        <li><a href="#" class="btn">Siguiente ›</a></li>
+        <li><a href="#" class="btn">Última »</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <!-- CTA -->
+  <section class="border-t border-white/10">
+    <div
+      class="mx-auto max-w-7xl px-4 py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-bold">¿Eres dueño de un club?</h3>
+        <p class="text-neutral-300">Súmate a Festiva y publica tus eventos hoy.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#" class="btn-primary">Comenzar</a>
+        <a href="#" class="btn-muted">Más info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10">
+    <div
+      class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-400 flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
+    >
+      <p>© {{ year }} Festiva</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Términos</a>
+        <a href="#" class="hover:text-white">Privacidad</a>
+        <a href="#" class="hover:text-white">Contacto</a>
+      </div>
+    </div>
+  </footer>
+</div>

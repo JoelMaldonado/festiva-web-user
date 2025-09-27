@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+@theme {
+  --color-p1: #ff4785;
+}
+
+/* ===== Utilities globales Festiva ===== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glow-pink {
+  filter: drop-shadow(0 0 18px rgba(244, 63, 94, 0.55));
+}
+.glow-soft {
+  filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.65));
+}
+
+/* Botones y chips */
+.btn {
+  @apply inline-flex items-center rounded-lg border border-white/10 px-3 py-2 text-neutral-200 hover:bg-white/5;
+}
+
+.btn-muted {
+  @apply inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-neutral-200 hover:bg-white/10;
+}
+
+.btn-primary {
+  @apply inline-flex items-center rounded-xl bg-pink-500 px-4 py-2.5 text-sm font-semibold shadow
+         hover:bg-pink-400 ring-1 ring-pink-400/60;
+  filter: drop-shadow(0 0 16px rgba(244, 63, 94, 0.55));
+}
+
+.pill {
+  @apply px-3 py-1.5 rounded-full bg-white/5 text-xs border border-white/10 hover:bg-white/10;
+}
+
+.pill-active {
+  @apply px-3 py-1.5 rounded-full bg-pink-500/90 text-xs font-semibold border border-pink-400/60;
+}
+
+.chip {
+  @apply px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10 whitespace-nowrap;
+}
+
+.page {
+  @apply inline-flex items-center rounded-lg px-3 py-2 border border-white/10 text-neutral-200 hover:bg-white/5;
+}
+.page.active {
+  @apply bg-pink-500 text-white ring-1 ring-pink-400;
+}
+
+/* Badges / tags */
+.tag {
+  @apply inline-flex items-center rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium ring-1 ring-white/20;
+}
+.badge-green {
+  @apply inline-flex items-center rounded-full bg-emerald-500/20 text-emerald-300 ring-1 ring-emerald-400/30 px-2.5 py-1 text-xs font-semibold;
+}
+.badge-pink {
+  @apply inline-flex items-center rounded-full bg-pink-500/20 text-pink-300 ring-1 ring-pink-400/30 px-2.5 py-1 text-xs font-semibold;
+}
+.badge-muted {
+  @apply inline-flex items-center rounded-full bg-white/10 text-neutral-200 ring-1 ring-white/20 px-2.5 py-1 text-xs font-medium;
+}
