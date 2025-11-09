@@ -1,0 +1,47 @@
+<div class="min-h-screen bg-neutral-950 text-white selection:bg-pink-500/30 selection:text-white">
+  <section class="relative overflow-hidden border-b border-white/10">
+    <event-gradients />
+    <div class="mx-auto max-w-7xl px-4 py-8 relative">
+      <div class="grid gap-6 lg:grid-cols-3">
+        <event-banner
+          class="lg:col-span-2"
+          [eventTitle]="event?.title"
+          [eventImageUrl]="event?.image_url"
+          [clubName]="club?.name"
+          [nextDate]="nextDate"
+        />
+
+        <event-info
+          class="lg:col-span-1"
+          [eventId]="eventId"
+          [title]="event?.title"
+          [clubName]="club?.name"
+          [address]="address"
+          [nextDate]="nextDate"
+          [ticketUrl]="event?.ticket_url"
+        />
+      </div>
+    </div>
+  </section>
+
+  <main class="mx-auto max-w-7xl px-4 py-10">
+    <div class="grid gap-8 lg:grid-cols-3">
+      <section class="lg:col-span-2 flex flex-col gap-8">
+        <event-about [description]="event?.description" />
+        <event-schedule [eventId]="eventId" (nextDateChange)="onNextDateChange($event)" />
+        <event-map [address]="address" />
+      </section>
+
+      <aside class="lg:col-span-1 flex flex-col gap-8">
+        @if (event?.club_id) {
+        <event-club [club]="club" />
+        }
+        <!--
+        <event-report />
+        -->
+      </aside>
+    </div>
+
+    <other-events />
+  </main>
+</div>
