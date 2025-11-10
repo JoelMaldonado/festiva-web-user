@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
-          source: 'dist/festiva-user-web/browser/*'
+          source: '/dist/festiva-user-web/browser/*'
           target: '/var/www/festiva-web-user/'
           overwrite: true
           rm: true
