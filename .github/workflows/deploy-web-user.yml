@@ -10,22 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      # 1️⃣ Clonar el repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      # 2️⃣ Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      - name: Install deps
+      # 3️⃣ Instalar dependencias
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular (prod)
+      # 4️⃣ Compilar Angular en modo producción
+      - name: Build Angular (production)
         run: npm run build -- --configuration production
 
-      - name: Deploy via SCP
+      # 5️⃣ Subir archivos al servidor vía SCP
+      - name: Upload build files to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -36,3 +41,19 @@ jobs:
           target: '/var/www/festiva-web-user/'
           overwrite: true
           rm: true
+
+      # 6️⃣ Ejecutar comandos remotos (por SSH)
+      - name: Run post-deploy commands
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            echo "✅ Conectado al servidor vía SSH"
+            cd /var/www/festiva-web-user
+            # Opcional: verificar archivos desplegados
+            ls -lah
+            # Reiniciar Nginx (asegúrate de que el usuario tenga permisos sudo sin contraseña)
+            sudo systemctl restart nginx || echo "⚠️ No se pudo reiniciar Nginx, revisa permisos"
