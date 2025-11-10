@@ -10,50 +10,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Clonar el repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      # 3️⃣ Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Compilar Angular en modo producción
       - name: Build Angular (production)
         run: npm run build -- --configuration production
 
-      # 5️⃣ Subir archivos al servidor vía SCP
       - name: Upload build files to server
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT || 22 }}
-          source: 'dist/festiva-user-web/browser/*'
-          target: '/var/www/festiva-web-user/'
+          source: 'dist/festiva-user-web/browser'
+          target: '/var/www/festiva-web-user'
+          rm: true # borra contenido previo del target
           overwrite: true
-          rm: true
+          strip_components: 3
+          # dist (1) / festiva-user-web (2) / browser (3) => deja solo el contenido
 
-      # 6️⃣ Ejecutar comandos remotos (por SSH)
       - name: Run post-deploy commands
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT || 22 }}
           script: |
             echo "✅ Conectado al servidor vía SSH"
             cd /var/www/festiva-web-user
-            # Opcional: verificar archivos desplegados
             ls -lah
-            # Reiniciar Nginx (asegúrate de que el usuario tenga permisos sudo sin contraseña)
-            sudo systemctl restart nginx || echo "⚠️ No se pudo reiniciar Nginx, revisa permisos"
+            systemctl restart nginx || echo "⚠️ No se pudo reiniciar Nginx, revisa permisos"
