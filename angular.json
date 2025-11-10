@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "festiva-user-web": {
+    "festiva-web-user": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -59,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "festiva-user-web:build:production"
+              "buildTarget": "festiva-web-user:build:production"
             },
             "development": {
-              "buildTarget": "festiva-user-web:build:development"
+              "buildTarget": "festiva-web-user:build:development"
             }
           },
           "defaultConfiguration": "development"
