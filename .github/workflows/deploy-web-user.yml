@@ -33,10 +33,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           source: 'dist/festiva-user-web/browser'
           target: '/var/www/festiva-web-user'
-          rm: true # borra contenido previo del target
+          rm: true
           overwrite: true
           strip_components: 3
-          # dist (1) / festiva-user-web (2) / browser (3) => deja solo el contenido
 
       - name: Run post-deploy commands
         uses: appleboy/ssh-action@v1
