@@ -5,6 +5,7 @@ import { EventDetailComponent } from './pages/event-detail/event-detail.componen
 import { ClubDetailComponent } from './pages/club-detail/club-detail.component';
 import { PoliciesComponent } from './pages/policies/policies.component';
 import { DeleteAccountComponent } from './pages/delete-account/delete-account.component';
+import { EventListComponent } from './pages/event-list/event-list.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
   {
     path: 'events',
     component: EventDashboardPage,
+  },
+  {
+    path: 'events-list',
+    component: EventListComponent,
   },
   {
     path: 'events/:eventId',
@@ -34,5 +39,5 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'events',
-  }
+  },
 ];
