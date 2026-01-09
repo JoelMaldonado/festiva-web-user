@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "GV652DQG48.com.festiva.core",
+        "paths": [ "/events/*" ]
+      }
+    ]
+  }
+}
