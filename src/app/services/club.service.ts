@@ -19,4 +19,8 @@ export class ClubService {
   getAllSocials(clubId: number) {
     return this.httpClient.get<ApiResponse<ClubSocialNetwork[]>>(`${this.baseUrl}/${clubId}/social`);
   }
+
+  getAllLocationsByClubId(clubId: number) {
+    return this.httpClient.get<ApiResponse<any[]>>(`${this.baseUrl}/${clubId}/location`);
+  }
 }

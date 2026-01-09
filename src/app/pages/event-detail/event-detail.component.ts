@@ -38,7 +38,7 @@ export class EventDetailComponent implements OnInit {
 
   event?: Event;
 
-  address?: string = '123 Event St, Cityville';
+  firstLocation?: any;
 
   nextDate?: Date;
 
@@ -65,12 +65,26 @@ export class EventDetailComponent implements OnInit {
       next: (res) => {
         if (res.success) {
           this.club = res.data;
+          this.getAddress();
         } else {
           console.error('Failed to load club data', res.message);
         }
       },
       error: (err) => {
         console.error('Failed to load club data', err);
+      },
+    });
+  }
+
+  getAddress() {
+    this.clubService.getAllLocationsByClubId(this.club!.id).subscribe({
+      next: (res) => {
+        if (res.success) {
+          this.firstLocation = res.data[0] || undefined;
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching club locations', err);
       },
     });
   }

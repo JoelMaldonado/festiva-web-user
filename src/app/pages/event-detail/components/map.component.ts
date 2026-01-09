@@ -16,16 +16,15 @@ import { MapTestComponent } from '../../../shared/components/map-test';
       <div
         class="h-72 w-full bg-neutral-900 border-t border-white/10 flex items-center justify-center"
       >
-        <map-test [lat]="lat" [lng]="lng" [zoom]="zoom" />
+        <map-test [lat]="latitude" [lng]="longitude" [zoom]="zoom" />
       </div>
     </article>
   `,
   imports: [MapTestComponent],
 })
 export class EventMapComponent {
-  @Input({ required: true }) address?: string;
-
-  lat = -13.419803;
-  lng = -76.135308;
+  @Input({ required: true }) address!: string;
+  @Input({ required: true }) latitude!: number;
+  @Input({ required: true }) longitude!: number;
   zoom = 12;
 }
