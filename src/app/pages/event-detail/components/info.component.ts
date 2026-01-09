@@ -49,14 +49,14 @@ import { EventService } from '../../../services/event.service';
 
       <div class="mt-4 flex flex-wrap gap-2">
         @if (ticketUrl) {
-        <app-button (clicked)="openUrl()" label="Conseguir entradas" />
+        <app-button (clicked)="openUrl()" label="Get tickets" />
         }
       </div>
 
       <!-- Artists -->
       @if (artists) {
       <div class="mt-6">
-        <h3 class="text-sm font-semibold text-neutral-200">Line-up / Artistas</h3>
+        <h3 class="text-sm font-semibold text-neutral-200">Line-up / Artists</h3>
         <div class="mt-2 flex flex-wrap gap-2">
           @for (item of artists; track $index) {
           <app-chip [value]="item.name" />
@@ -67,7 +67,7 @@ import { EventService } from '../../../services/event.service';
       <!-- Categories -->
       @if (categories) {
       <div class="mt-6">
-        <h3 class="text-sm font-semibold text-neutral-200">Categorías</h3>
+        <h3 class="text-sm font-semibold text-neutral-200">Categories</h3>
         <div class="mt-2 flex flex-wrap gap-2">
           @for (item of categories; track $index) {
           <app-chip [value]="item.title" />

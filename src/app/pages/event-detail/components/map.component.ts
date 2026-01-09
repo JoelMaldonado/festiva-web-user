@@ -8,7 +8,7 @@ import { MapTestComponent } from '../../../shared/components/map-test';
   template: `
     <article class="rounded-2xl bg-neutral-900/60 border border-white/10 p-0 overflow-hidden">
       <div class="p-5">
-        <h2 class="text-lg font-semibold tracking-tight">Ubicación</h2>
+        <h2 class="text-lg font-semibold tracking-tight">Location</h2>
         @if (address) {
         <p class="mt-1 text-sm text-neutral-300">{{ address }}</p>
         }

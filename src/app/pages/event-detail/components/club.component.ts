@@ -11,7 +11,7 @@ import { ClubSocialNetwork } from '../../../core/models/club-social-network.mode
   imports: [CommonModule, SocialNetworkPipe],
   template: `
     <div class="rounded-2xl bg-neutral-900/60 border border-white/10 p-5">
-      <h3 class="text-sm font-semibold text-neutral-200">Organiza</h3>
+      <h3 class="text-sm font-semibold text-neutral-200">Organized by</h3>
       <div class="mt-3 flex items-center gap-3">
         <div
           class="h-10 w-10 rounded-xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center"

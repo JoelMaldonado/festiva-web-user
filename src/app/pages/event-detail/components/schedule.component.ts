@@ -8,7 +8,7 @@ import { EventService } from '../../../services/event.service';
   imports: [CommonModule],
   template: `
     <article class="rounded-2xl bg-neutral-900/60 border border-white/10 p-5">
-      <h2 class="text-lg font-semibold tracking-tight">Fechas y horarios</h2>
+      <h2 class="text-lg font-semibold tracking-tight">Dates and schedule</h2>
       <ul class="mt-3 divide-y divide-white/5">
         @for (item of schedules; track $index) {
         <li class="py-3 flex items-center justify-between">
@@ -34,7 +34,7 @@ import { EventService } from '../../../services/event.service';
           </div>
         </li>
         } @if (!schedules.length) {
-        <li class="py-3 text-sm text-neutral-400">Pronto anunciaremos fechas.</li>
+        <li class="py-3 text-sm text-neutral-400">At the moment, there are no available dates for this event.</li>
         }
       </ul>
     </article>

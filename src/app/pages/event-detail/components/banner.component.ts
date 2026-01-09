@@ -8,14 +8,14 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
       <div class="aspect-[16/9] md:aspect-[21/9] relative">
+        @if (eventImageUrl) {
         <img
-          [src]="
-            eventImageUrl ||
-            'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1400&auto=format&fit=crop'
-          "
+          [src]="eventImageUrl"
           [alt]="eventTitle || 'Event cover'"
           class="h-full w-full object-cover"
         />
+        }
+
         <div
           class="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-neutral-950/10 to-transparent"
         ></div>
