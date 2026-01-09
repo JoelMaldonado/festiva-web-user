@@ -7,17 +7,17 @@ export class SocialNetworkPipe implements PipeTransform {
   transform(socialNetworkId: number): unknown {
     switch (socialNetworkId) {
       case 1:
-        return 'facebook';
+        return 'Facebook';
       case 2:
-        return 'twitter';
+        return 'Instagram';
       case 3:
-        return 'instagram';
+        return 'Snapchat';
       case 4:
-        return 'linkedin';
+        return 'TikTok';
       case 5:
-        return 'youtube';
+        return 'Twitter';
       case 6:
-        return 'tiktok';
+        return 'SoundCloud';
       default:
         return 'unknown';
     }
