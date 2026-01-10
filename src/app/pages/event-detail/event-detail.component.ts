@@ -6,7 +6,6 @@ import { EventScheduleComponent } from './components/schedule.component';
 import { EventMapComponent } from './components/map.component';
 import { EventInfoComponent } from './components/info.component';
 import { EventClubComponent } from './components/club.component';
-import { OtherEventsComponent } from './components/other-events.component';
 import { EventBannerComponent } from './components/banner.component';
 import { EventGradientsComponent } from './components/gradients.component';
 import { EventService } from '../../services/event.service';
@@ -24,7 +23,6 @@ import { Club } from '../../core/models/club.model';
     EventMapComponent,
     EventInfoComponent,
     EventClubComponent,
-    OtherEventsComponent,
     EventBannerComponent,
     EventGradientsComponent,
   ],

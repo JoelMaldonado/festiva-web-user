@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
         <img
           [src]="eventImageUrl"
           [alt]="eventTitle || 'Event cover'"
-          class="h-full w-full object-cover"
+          class="h-full w-full object-contain bg-neutral-800 mx-auto"
         />
         }
 

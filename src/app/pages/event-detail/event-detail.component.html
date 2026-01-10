@@ -24,9 +24,9 @@
     </div>
   </section>
 
-  <main class="mx-auto max-w-7xl px-4 py-10">
-    <div class="grid gap-8 lg:grid-cols-3">
-      <section class="lg:col-span-2 flex flex-col gap-8">
+  <main class="mx-auto max-w-7xl px-2 sm:px-4 py-6 sm:py-10">
+    <div class="flex flex-col gap-8 lg:grid lg:grid-cols-3">
+      <section class="flex flex-col gap-8 lg:col-span-2 w-full">
         <event-about [description]="event?.description" />
         <event-schedule [eventId]="eventId" (nextDateChange)="onNextDateChange($event)" />
         @if (firstLocation) {
@@ -38,7 +38,7 @@
         }
       </section>
 
-      <aside class="lg:col-span-1 flex flex-col gap-8">
+      <aside class="flex flex-col gap-8 lg:col-span-1 w-full">
         @if (event?.club_id) {
         <event-club [club]="club" />
         }
