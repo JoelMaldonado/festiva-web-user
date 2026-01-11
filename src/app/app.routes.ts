@@ -36,8 +36,4 @@ export const routes: Routes = [
     path: 'clubs/:clubId',
     component: ClubDetailComponent,
   },
-  {
-    path: '**',
-    redirectTo: 'events',
-  },
 ];
