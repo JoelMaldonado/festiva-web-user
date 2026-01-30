@@ -29,6 +29,10 @@ export const routes: Routes = [
     component: EventDetailComponent,
   },
   {
+    path: 'events/:id/:slug',
+    component: EventDetailComponent,
+  },
+  {
     path: 'clubs',
     component: ClubDashboardPage,
   },
