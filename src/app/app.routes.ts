@@ -29,7 +29,7 @@ export const routes: Routes = [
     component: EventDetailComponent,
   },
   {
-    path: 'events/:id/:slug',
+    path: 'events/:eventId/:slug',
     component: EventDetailComponent,
   },
   {
