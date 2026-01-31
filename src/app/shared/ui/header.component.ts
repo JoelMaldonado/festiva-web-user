@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
     >
       <div class="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
         <!-- Logo -->
-        <a href="#" class="group inline-flex items-center gap-2">
+        <a href="/events" class="group inline-flex items-center gap-2">
           <div
             class="h-8 w-8 rounded-xl bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 ring-2 ring-pink-400/50 glow-pink"
           ></div>
@@ -20,16 +20,10 @@ import { Component, OnInit } from '@angular/core';
           </span>
         </a>
 
-        <nav class="ml-2 text-sm text-neutral-400 hidden md:block">
-          <a routerLink="/" class="hover:text-white/90">Inicio</a>
-          <span class="mx-2">/</span>
-          <a routerLink="/oslo/eventos" class="hover:text-white/90">Eventos</a>
-          <span class="mx-2">/</span>
-          <span class="text-white/80 align-middle">Evento</span>
-        </nav>
-
+        <!-- Mock search -->
+        <!--
+        
         <div class="ml-auto hidden md:flex items-center gap-3">
-          <!-- Mock search -->
           <div class="relative">
             <input
               type="text"
@@ -56,6 +50,7 @@ import { Component, OnInit } from '@angular/core';
             Submit event
           </a>
         </div>
+      -->
       </div>
     </header>
   `,
