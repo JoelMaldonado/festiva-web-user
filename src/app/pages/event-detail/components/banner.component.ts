@@ -13,7 +13,7 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
           <img
             [src]="eventImageUrl"
             alt="Event cover"
-            class="h-full w-full object-cover bg-neutral-800 mx-auto"
+            class="h-full w-full object-cover bg-neutral-800 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300"
             (click)="openLightbox()"
           />
         }
