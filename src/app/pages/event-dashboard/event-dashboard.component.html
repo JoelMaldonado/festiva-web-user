@@ -1,33 +1,63 @@
 <!-- Shell -->
 <div class="min-h-screen bg-neutral-950 text-white selection:bg-pink-500/30 selection:text-white">
-
   <!-- Topbar -->
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0 opacity-60">
-      <div class="absolute -top-24 -left-32 h-72 w-72 rounded-full blur-3xl"
-           style="background: radial-gradient(60% 60% at 50% 50%, rgba(244,63,94,.55), transparent 70%);"></div>
-      <div class="absolute -bottom-24 -right-32 h-72 w-72 rounded-full blur-3xl"
-           style="background: radial-gradient(60% 60% at 50% 50%, rgba(168,85,247,.45), transparent 70%);"></div>
+      <div
+        class="absolute -top-24 -left-32 h-72 w-72 rounded-full blur-3xl"
+        style="
+          background: radial-gradient(60% 60% at 50% 50%, rgba(244, 63, 94, 0.55), transparent 70%);
+        "
+      ></div>
+      <div
+        class="absolute -bottom-24 -right-32 h-72 w-72 rounded-full blur-3xl"
+        style="
+          background: radial-gradient(
+            60% 60% at 50% 50%,
+            rgba(168, 85, 247, 0.45),
+            transparent 70%
+          );
+        "
+      ></div>
     </div>
 
     <div class="mx-auto max-w-7xl px-4 py-10 md:py-14 relative">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            Noche <span class="text-pink-400 drop-shadow-[0_0_18px_rgba(244,63,94,0.6)]">viva</span> en Oslo
+            Noche
+            <span class="text-pink-400 drop-shadow-[0_0_18px_rgba(244,63,94,0.6)]">viva</span> en
+            Oslo
           </h1>
           <p class="mt-2 max-w-xl text-neutral-300">
-            Descubre fiestas, clubs y eventos imperdibles. Todo en un solo lugar, con vibra <em>neón</em>.
+            Descubre fiestas, clubs y eventos imperdibles. Todo en un solo lugar, con vibra
+            <em>neón</em>.
           </p>
         </div>
         <!-- Quick date pills (mock) -->
         <div class="flex flex-wrap gap-2">
-          <button class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10">Hoy</button>
-          <button class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10">Mañana</button>
-          <button class="px-3 py-1.5 rounded-full bg-pink-500/90 text-sm font-semibold border border-pink-400/60">Este fin</button>
-          <button class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10">Próxima semana</button>
+          <button
+            class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10"
+          >
+            Hoy
+          </button>
+          <button
+            class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10"
+          >
+            Mañana
+          </button>
+          <button
+            class="px-3 py-1.5 rounded-full bg-pink-500/90 text-sm font-semibold border border-pink-400/60"
+          >
+            Este fin
+          </button>
+          <button
+            class="px-3 py-1.5 rounded-full bg-white/5 text-sm border border-white/10 hover:bg-white/10"
+          >
+            Próxima semana
+          </button>
         </div>
       </div>
     </div>
@@ -47,10 +77,14 @@
         <button class="chip">Jazz</button>
       </div>
       <div class="ml-auto flex items-center gap-2">
-        <button class="px-3 py-2 rounded-lg bg-white/5 text-sm border border-white/10 hover:bg-white/10">
+        <button
+          class="px-3 py-2 rounded-lg bg-white/5 text-sm border border-white/10 hover:bg-white/10"
+        >
           <span class="opacity-80">Oslo</span>
         </button>
-        <button class="px-3 py-2 rounded-lg bg-white/5 text-sm border border-white/10 hover:bg-white/10">
+        <button
+          class="px-3 py-2 rounded-lg bg-white/5 text-sm border border-white/10 hover:bg-white/10"
+        >
           <span class="opacity-80">Ordenar: Relevancia</span>
         </button>
       </div>
@@ -58,74 +92,27 @@
   </div>
 
   <!-- Featured (horizontal snap) -->
-  <section class="mx-auto max-w-7xl px-4 py-8">
-    <h2 class="mb-4 text-lg font-semibold tracking-tight">Destacados</h2>
-    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 no-scrollbar">
-      <!-- Card wide -->
-      <article class="min-w-[85%] sm:min-w-[60%] lg:min-w-[40%] snap-start relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10">
-        <div class="relative aspect-[16/7]">
-          <img class="h-full w-full object-cover"
-               src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1400&auto=format&fit=crop"
-               alt="Featured party" />
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-transparent"></div>
-          <div class="absolute left-4 bottom-4 right-4">
-            <div class="mb-2">
-              <span class="rounded-full bg-pink-500/90 px-2.5 py-1 text-xs font-semibold ring-1 ring-pink-400/60">
-                Techno / House
-              </span>
-            </div>
-            <h3 class="text-xl font-bold">Warehouse Secret Night</h3>
-            <p class="text-sm text-neutral-300">SALT — Art & Music • 23:00</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- Duplicados de ejemplo -->
-      <article class="min-w-[85%] sm:min-w-[60%] lg:min-w-[40%] snap-start relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10">
-        <div class="relative aspect-[16/7]">
-          <img class="h-full w-full object-cover"
-               src="https://images.unsplash.com/photo-1518112166137-85f9979a43aa?q=80&w=1400&auto=format&fit=crop"
-               alt="Featured party" />
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-transparent"></div>
-          <div class="absolute left-4 bottom-4 right-4">
-            <div class="mb-2">
-              <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium ring-1 ring-white/20">
-                Disco / Funk
-              </span>
-            </div>
-            <h3 class="text-xl font-bold">Boogie Lights w/ Live Sax</h3>
-            <p class="text-sm text-neutral-300">Hør Hør • 22:00</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="min-w-[85%] sm:min-w-[60%] lg:min-w-[40%] snap-start relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10">
-        <div class="relative aspect-[16/7]">
-          <img class="h-full w-full object-cover"
-               src="https://images.unsplash.com/photo-1444824775686-4185f172c44b?q=80&w=1400&auto=format&fit=crop"
-               alt="Featured party" />
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-transparent"></div>
-          <div class="absolute left-4 bottom-4 right-4">
-            <div class="mb-2">
-              <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium ring-1 ring-white/20">
-                Latin
-              </span>
-            </div>
-            <h3 class="text-xl font-bold">Samba Explosion: En kveld i Rio</h3>
-            <p class="text-sm text-neutral-300">The Broker • 18:30</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+  <!-- 
+  <eventos-destacados />
+  -->
 
   <!-- Grid -->
   <main class="mx-auto max-w-7xl px-4 pb-14">
     <div class="mb-4 flex items-center justify-between">
-      <p class="text-sm text-neutral-400">Mostrando <span class="text-white font-medium">12</span> de 380 eventos</p>
+      <p class="text-sm text-neutral-400">
+        Mostrando <span class="text-white font-medium">12</span> de 380 eventos
+      </p>
       <div class="hidden sm:flex items-center gap-2">
-        <button class="px-3 py-1.5 rounded-full bg-white/5 text-xs border border-white/10 hover:bg-white/10">Mapa</button>
-        <button class="px-3 py-1.5 rounded-full bg-pink-500/90 text-xs font-semibold border border-pink-400/60">Lista</button>
+        <button
+          class="px-3 py-1.5 rounded-full bg-white/5 text-xs border border-white/10 hover:bg-white/10"
+        >
+          Mapa
+        </button>
+        <button
+          class="px-3 py-1.5 rounded-full bg-pink-500/90 text-xs font-semibold border border-pink-400/60"
+        >
+          Lista
+        </button>
       </div>
     </div>
 
@@ -133,26 +120,42 @@
       <!-- Card -->
       <!-- Repite varias veces como maqueta -->
       <!-- 1 -->
-      <article class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5">
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
         <div class="relative aspect-[16/10] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop" alt="Event"
-               class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <img
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop"
+            alt="Event"
+            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          />
           <div class="absolute left-3 top-3">
-            <div class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15">
+            <div
+              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+            >
               <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
               <span class="text-lg font-extrabold leading-none text-white">27</span>
             </div>
           </div>
           <div class="absolute left-3 bottom-3">
-            <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20">
+            <span
+              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
+            >
               Techno / House
             </span>
           </div>
         </div>
         <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">DJ sauna session | Nora Pagu</h3>
+          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
+            DJ sauna session | Nora Pagu
+          </h3>
           <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
+              <path
+                fill="currentColor"
+                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
             <span class="line-clamp-1">SALT – Art & Music</span>
             <span class="mx-1 text-neutral-600">•</span>
             <time class="tabular-nums">15:00</time>
@@ -161,18 +164,27 @@
       </article>
 
       <!-- 2 -->
-      <article class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5">
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
         <div class="relative aspect-[16/10] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1200&auto=format&fit=crop" alt="Event"
-               class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <img
+            src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1200&auto=format&fit=crop"
+            alt="Event"
+            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          />
           <div class="absolute left-3 top-3">
-            <div class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15">
+            <div
+              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+            >
               <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
               <span class="text-lg font-extrabold leading-none text-white">27</span>
             </div>
           </div>
           <div class="absolute left-3 bottom-3">
-            <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20">
+            <span
+              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
+            >
               Disco / Funk
             </span>
           </div>
@@ -180,7 +192,12 @@
         <div class="p-4">
           <h3 class="line-clamp-2 text-base font-semibold tracking-tight">Thor Helge Langsholdt</h3>
           <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
+              <path
+                fill="currentColor"
+                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
             <span class="line-clamp-1">Hør Hør</span>
             <span class="mx-1 text-neutral-600">•</span>
             <time class="tabular-nums">16:00</time>
@@ -189,26 +206,42 @@
       </article>
 
       <!-- 3 -->
-      <article class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5">
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
         <div class="relative aspect-[16/10] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop" alt="Event"
-               class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <img
+            src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop"
+            alt="Event"
+            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          />
           <div class="absolute left-3 top-3">
-            <div class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15">
+            <div
+              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+            >
               <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
               <span class="text-lg font-extrabold leading-none text-white">27</span>
             </div>
           </div>
           <div class="absolute left-3 bottom-3">
-            <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20">
+            <span
+              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
+            >
               Latin
             </span>
           </div>
         </div>
         <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">Samba Explosion: En kveld i Rio</h3>
+          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
+            Samba Explosion: En kveld i Rio
+          </h3>
           <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
+              <path
+                fill="currentColor"
+                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
             <span class="line-clamp-1">The Broker</span>
             <span class="mx-1 text-neutral-600">•</span>
             <time class="tabular-nums">18:30</time>
@@ -217,26 +250,42 @@
       </article>
 
       <!-- 4 -->
-      <article class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5">
+      <article
+        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+      >
         <div class="relative aspect-[16/10] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop" alt="Event"
-               class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <img
+            src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop"
+            alt="Event"
+            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          />
           <div class="absolute left-3 top-3">
-            <div class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15">
+            <div
+              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+            >
               <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
               <span class="text-lg font-extrabold leading-none text-white">27</span>
             </div>
           </div>
           <div class="absolute left-3 bottom-3">
-            <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20">
+            <span
+              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
+            >
               Pop
             </span>
           </div>
         </div>
         <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">Thomas Dybdahl - Ekstrakonsert</h3>
+          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
+            Thomas Dybdahl - Ekstrakonsert
+          </h3>
           <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
+              <path
+                fill="currentColor"
+                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
             <span class="line-clamp-1">Rockefeller</span>
             <span class="mx-1 text-neutral-600">•</span>
             <time class="tabular-nums">19:00</time>
@@ -263,32 +312,25 @@
 
   <!-- Newsletter / CTA -->
   <section class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <div
+      class="mx-auto max-w-7xl px-4 py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+    >
       <div>
         <h3 class="text-xl font-bold">No te pierdas nada</h3>
         <p class="text-neutral-300">Recibe las mejores fiestas y eventos en tu correo.</p>
       </div>
       <div class="flex w-full md:w-auto items-center gap-2">
-        <input type="email" placeholder="tu@email.com"
-               class="w-full md:w-80 rounded-xl bg-neutral-900 border border-white/10 px-4 py-2.5
-                      placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-pink-500/60" />
-        <button class="rounded-xl bg-pink-500 px-4 py-2.5 text-sm font-semibold shadow hover:bg-pink-400
-                       ring-1 ring-pink-400/60 drop-shadow-[0_0_16px_rgba(244,63,94,0.55)]">
+        <input
+          type="email"
+          placeholder="tu@email.com"
+          class="w-full md:w-80 rounded-xl bg-neutral-900 border border-white/10 px-4 py-2.5 placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-pink-500/60"
+        />
+        <button
+          class="rounded-xl bg-pink-500 px-4 py-2.5 text-sm font-semibold shadow hover:bg-pink-400 ring-1 ring-pink-400/60 drop-shadow-[0_0_16px_rgba(244,63,94,0.55)]"
+        >
           Suscribirme
         </button>
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-400 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-      <p>© {{ date }} Festiva</p>
-      <div class="flex items-center gap-4">
-        <a href="#" class="hover:text-white">Términos</a>
-        <a href="#" class="hover:text-white">Privacidad</a>
-        <a href="#" class="hover:text-white">Contacto</a>
-      </div>
-    </div>
-  </footer>
 </div>

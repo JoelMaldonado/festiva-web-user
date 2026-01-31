@@ -10,7 +10,7 @@ import { EventService } from '../../../services/event.service';
   imports: [CommonModule, AppButtonComponent, AppChipComponent],
   template: `
     <aside class="rounded-2xl border border-white/10 bg-neutral-900/60 p-4 md:p-5 sticky top-20">
-      <h1 class="hidden md:block text-2xl font-extrabold tracking-tight">
+      <h1 class="text-2xl font-extrabold tracking-tight">
         {{ title }}
       </h1>
 
