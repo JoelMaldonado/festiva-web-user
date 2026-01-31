@@ -11,6 +11,10 @@ export class EventService {
   private readonly baseUrl = `${environment.apiUrl}/api/v1/event`;
   private readonly httpClient = inject(HttpClient);
 
+  getAll() {
+    return this.httpClient.get<ApiResponse<Event[]>>(`${this.baseUrl}/`);
+  }
+
   getEventById(eventId: string) {
     return this.httpClient.get<ApiResponse<Event>>(`${this.baseUrl}/${eventId}`);
   }

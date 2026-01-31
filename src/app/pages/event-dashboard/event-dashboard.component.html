@@ -117,184 +117,54 @@
     </div>
 
     <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      <!-- Card -->
-      <!-- Repite varias veces como maqueta -->
-      <!-- 1 -->
-      <article
-        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
-      >
-        <div class="relative aspect-[16/10] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop"
-            alt="Event"
-            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-          />
-          <div class="absolute left-3 top-3">
-            <div
-              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
-            >
-              <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
-              <span class="text-lg font-extrabold leading-none text-white">27</span>
+      @for (item of events; track $index) {
+        <article
+          class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
+          (click)="toDetail(item.event_id)"        >
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img
+              [src]="item.image_url"
+              alt="Event"
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            />
+            <div class="absolute left-3 top-3">
+              <div
+                class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+              >
+                <span class="text-[10px] font-bold tracking-wide text-neutral-200">{{
+                  item.event_date | date: 'MMM'
+                }}</span>
+                <span class="text-lg font-extrabold leading-none text-white">
+                  {{ item.event_date | date: 'dd' }}
+                </span>
+              </div>
+            </div>
+            <div class="absolute left-3 bottom-3">
+              <span
+                class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
+              >
+                Techno / House
+              </span>
             </div>
           </div>
-          <div class="absolute left-3 bottom-3">
-            <span
-              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
-            >
-              Techno / House
-            </span>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
-            DJ sauna session | Nora Pagu
-          </h3>
-          <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
-              <path
-                fill="currentColor"
-                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-              />
-            </svg>
-            <span class="line-clamp-1">SALT – Art & Music</span>
-            <span class="mx-1 text-neutral-600">•</span>
-            <time class="tabular-nums">15:00</time>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2 -->
-      <article
-        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
-      >
-        <div class="relative aspect-[16/10] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1200&auto=format&fit=crop"
-            alt="Event"
-            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-          />
-          <div class="absolute left-3 top-3">
-            <div
-              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
-            >
-              <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
-              <span class="text-lg font-extrabold leading-none text-white">27</span>
+          <div class="p-4">
+            <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
+             {{ item.title }}
+            </h3>
+            <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
+                <path
+                  fill="currentColor"
+                  d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                />
+              </svg>
+              <span class="line-clamp-1">{{ item.club_name }}</span>
             </div>
           </div>
-          <div class="absolute left-3 bottom-3">
-            <span
-              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
-            >
-              Disco / Funk
-            </span>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">Thor Helge Langsholdt</h3>
-          <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
-              <path
-                fill="currentColor"
-                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-              />
-            </svg>
-            <span class="line-clamp-1">Hør Hør</span>
-            <span class="mx-1 text-neutral-600">•</span>
-            <time class="tabular-nums">16:00</time>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3 -->
-      <article
-        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
-      >
-        <div class="relative aspect-[16/10] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop"
-            alt="Event"
-            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-          />
-          <div class="absolute left-3 top-3">
-            <div
-              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
-            >
-              <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
-              <span class="text-lg font-extrabold leading-none text-white">27</span>
-            </div>
-          </div>
-          <div class="absolute left-3 bottom-3">
-            <span
-              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
-            >
-              Latin
-            </span>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
-            Samba Explosion: En kveld i Rio
-          </h3>
-          <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
-              <path
-                fill="currentColor"
-                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-              />
-            </svg>
-            <span class="line-clamp-1">The Broker</span>
-            <span class="mx-1 text-neutral-600">•</span>
-            <time class="tabular-nums">18:30</time>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article
-        class="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-lg transition hover:shadow-xl hover:-translate-y-0.5"
-      >
-        <div class="relative aspect-[16/10] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop"
-            alt="Event"
-            class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-          />
-          <div class="absolute left-3 top-3">
-            <div
-              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
-            >
-              <span class="text-[10px] font-bold tracking-wide text-neutral-200">SEP</span>
-              <span class="text-lg font-extrabold leading-none text-white">27</span>
-            </div>
-          </div>
-          <div class="absolute left-3 bottom-3">
-            <span
-              class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur ring-1 ring-white/20"
-            >
-              Pop
-            </span>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="line-clamp-2 text-base font-semibold tracking-tight">
-            Thomas Dybdahl - Ekstrakonsert
-          </h3>
-          <div class="mt-2 flex items-center gap-2 text-sm text-neutral-300">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 opacity-80">
-              <path
-                fill="currentColor"
-                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-              />
-            </svg>
-            <span class="line-clamp-1">Rockefeller</span>
-            <span class="mx-1 text-neutral-600">•</span>
-            <time class="tabular-nums">19:00</time>
-          </div>
-        </div>
-      </article>
-
-      <!-- Agrega más cards… -->
+        </article>
+      }
     </section>
+
 
     <!-- Pagination (mock) -->
     <nav class="mt-10 flex items-center justify-center">
