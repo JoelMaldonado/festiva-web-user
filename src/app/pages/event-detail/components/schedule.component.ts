@@ -11,30 +11,33 @@ import { EventService } from '../../../services/event.service';
       <h2 class="text-lg font-semibold tracking-tight">Dates and schedule</h2>
       <ul class="mt-3 divide-y divide-white/5">
         @for (item of schedules; track $index) {
-        <li class="py-3 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div
-              class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
-            >
-              <span class="text-[10px] font-bold tracking-wide text-neutral-200">{{
-                item.event_date | date : 'MMM' | uppercase
-              }}</span>
-              <span class="text-lg font-extrabold leading-none text-white">{{
-                item.event_date | date : 'd'
-              }}</span>
+          <li class="py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div
+                class="flex flex-col items-center rounded-xl bg-black/70 px-2 py-1 ring-1 ring-white/15"
+              >
+                <span class="text-[10px] font-bold tracking-wide text-neutral-200">{{
+                  item.event_date | date: 'MMM' | uppercase
+                }}</span>
+                <span class="text-lg font-extrabold leading-none text-white">{{
+                  item.event_date | date: 'd'
+                }}</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium">
+                  <time class="tabular-nums">
+                    {{ item.event_date | date: 'EEEE dd MMMM' }}
+                  </time>
+                </p>
+                <p class="text-xs text-neutral-400">Time: {{ item.start_time | date: 'HH:mm' }}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-sm font-medium">
-                <time class="tabular-nums">
-                  {{ item.event_date | date : 'EEEE dd MMMM' }}
-                </time>
-              </p>
-              <p class="text-xs text-neutral-400">Time: {{ item.start_time }}</p>
-            </div>
-          </div>
-        </li>
-        } @if (!schedules.length) {
-        <li class="py-3 text-sm text-neutral-400">At the moment, there are no available dates for this event.</li>
+          </li>
+        }
+        @if (!schedules.length) {
+          <li class="py-3 text-sm text-neutral-400">
+            At the moment, there are no available dates for this event.
+          </li>
         }
       </ul>
     </article>
