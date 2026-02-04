@@ -29,7 +29,7 @@ import { EventService } from '../../../services/event.service';
                     {{ item.event_date | date: 'EEEE dd MMMM' }}
                   </time>
                 </p>
-                <p class="text-xs text-neutral-400">Time: {{ item.start_time | date: 'HH:mm' }}</p>
+                <p class="text-xs text-neutral-400">Time: {{ item.start_time }}</p>
               </div>
             </div>
           </li>
