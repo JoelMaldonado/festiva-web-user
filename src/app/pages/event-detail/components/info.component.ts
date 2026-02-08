@@ -25,55 +25,59 @@ import { EventService } from '../../../services/event.service';
           <span class="line-clamp-1">{{ clubName || '—' }}</span>
         </div>
         @if (address) {
-        <div class="flex items-start gap-2">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 opacity-80 mt-0.5">
-            <path
-              fill="currentColor"
-              d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7m0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"
-            />
-          </svg>
-          <span>{{ address }}</span>
-        </div>
-        } @if(nextDate) {
-        <div class="flex items-center gap-2">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 opacity-80">
-            <path
-              fill="currentColor"
-              d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.89-1.99 2L3 20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6c0-1.11-.9-2-2-2m0 16H5V10h14v10Z"
-            />
-          </svg>
+          <div class="flex items-start gap-2">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 opacity-80 mt-0.5">
+              <path
+                fill="currentColor"
+                d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7m0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"
+              />
+            </svg>
+            <span>{{ address }}</span>
+          </div>
+        }
+        @if (nextDate) {
+          <div class="flex items-center gap-2">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 opacity-80">
+              <path
+                fill="currentColor"
+                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.89-1.99 2L3 20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6c0-1.11-.9-2-2-2m0 16H5V10h14v10Z"
+              />
+            </svg>
+            <!--
           <time class="tabular-nums">{{ nextDate | date : 'EEEE d MMMM • HH:mm' }}</time>
-        </div>
+          -->
+            <time class="tabular-nums">{{ nextDate | date: 'EEEE d MMMM' }}</time>
+          </div>
         }
       </div>
 
       <div class="mt-4 flex flex-wrap gap-2">
         @if (ticketUrl) {
-        <app-button (clicked)="openUrl()" label="Get tickets" />
+          <app-button (clicked)="openUrl()" label="Get tickets" />
         }
       </div>
 
       <!-- Artists -->
       @if (artists) {
-      <div class="mt-6">
-        <h3 class="text-sm font-semibold text-neutral-200">Line-up / Artists</h3>
-        <div class="mt-2 flex flex-wrap gap-2">
-          @for (item of artists; track $index) {
-          <app-chip [value]="item.name" />
-          }
+        <div class="mt-6">
+          <h3 class="text-sm font-semibold text-neutral-200">Line-up / Artists</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            @for (item of artists; track $index) {
+              <app-chip [value]="item.name" />
+            }
+          </div>
         </div>
-      </div>
       }
       <!-- Categories -->
       @if (categories) {
-      <div class="mt-6">
-        <h3 class="text-sm font-semibold text-neutral-200">Categories</h3>
-        <div class="mt-2 flex flex-wrap gap-2">
-          @for (item of categories; track $index) {
-          <app-chip [value]="item.title" />
-          }
+        <div class="mt-6">
+          <h3 class="text-sm font-semibold text-neutral-200">Categories</h3>
+          <div class="mt-2 flex flex-wrap gap-2">
+            @for (item of categories; track $index) {
+              <app-chip [value]="item.title" />
+            }
+          </div>
         </div>
-      </div>
       }
     </aside>
   `,

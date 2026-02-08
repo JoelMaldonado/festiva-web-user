@@ -29,7 +29,7 @@ import { EventService } from '../../../services/event.service';
                     {{ item.event_date | date: 'EEEE dd MMMM' }}
                   </time>
                 </p>
-                <p class="text-xs text-neutral-400">Time: {{ item.start_time }}</p>
+                <p class="text-xs text-neutral-400">Time: {{ getOnlyHoursAndMinutes(item.start_time) }}</p>
               </div>
             </div>
           </li>
@@ -55,6 +55,10 @@ export class EventScheduleComponent implements OnInit {
     event_date: string | Date;
     start_time?: string | null;
   }[] = [];
+
+  getOnlyHoursAndMinutes(time: string | null | undefined): string {
+    return time ? time.slice(0, 5) : '';
+  }
 
   ngOnInit(): void {
     this.eventService.getEventSchedules(this.eventId).subscribe({
