@@ -31,31 +31,39 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "dist/festiva-web-user/*,package.json,package-lock.json"
-          target: "/var/www/festiva-web-user"
+          source: 'dist/festiva-web-user/*,package.json,package-lock.json'
+          target: '/var/www/festiva-web-user'
           rm: true
           overwrite: true
           strip_components: 0
 
       - name: Install deps and restart SSR app
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            set -e
-            cd /var/www/festiva-web-user
+  uses: appleboy/ssh-action@v1
+  with:
+    host: ${{ secrets.SSH_HOST }}
+    username: ${{ secrets.SSH_USER }}
+    key: ${{ secrets.SSH_KEY }}
+    script: |
+      set -e
+      cd /var/www/festiva-web-user
 
-            echo "✅ Archivos recibidos"
-            ls -lah
-            ls -lah dist/festiva-web-user
-            ls -lah dist/festiva-web-user/server
+      echo "✅ Archivos recibidos"
+      ls -lah
+      ls -lah dist/festiva-web-user
+      ls -lah dist/festiva-web-user/server
 
-            npm ci --omit=dev
+      npm ci --omit=dev
 
-            pm2 delete festiva-web-user || true
-            pm2 start dist/festiva-web-user/server/server.mjs --name festiva-web-user
-            pm2 save
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+      nvm use 22
 
-            systemctl reload nginx || echo "⚠️ No se pudo recargar nginx"
+      which node
+      which npm
+      which pm2
+
+      pm2 delete festiva-web-user || true
+      PORT=4000 pm2 start dist/festiva-web-user/server/server.mjs --name festiva-web-user
+      pm2 save
+
+      systemctl reload nginx || echo "⚠️ No se pudo recargar nginx"
