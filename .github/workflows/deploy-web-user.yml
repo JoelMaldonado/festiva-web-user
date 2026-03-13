@@ -1,0 +1,61 @@
+name: Deploy festiva-web-user
+
+on:
+  push:
+    branches:
+      - festiva-2
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular SSR (production)
+        run: npm run build -- --configuration production
+
+      - name: Upload app files to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "dist/festiva-web-user/*,package.json,package-lock.json"
+          target: "/var/www/festiva-web-user"
+          rm: true
+          overwrite: true
+          strip_components: 0
+
+      - name: Install deps and restart SSR app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            cd /var/www/festiva-web-user
+
+            echo "✅ Archivos recibidos"
+            ls -lah
+            ls -lah dist/festiva-web-user
+            ls -lah dist/festiva-web-user/server
+
+            npm ci --omit=dev
+
+            pm2 delete festiva-web-user || true
+            pm2 start dist/festiva-web-user/server/server.mjs --name festiva-web-user
+            pm2 save
+
+            systemctl reload nginx || echo "⚠️ No se pudo recargar nginx"
