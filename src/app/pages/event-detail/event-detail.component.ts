@@ -37,7 +37,7 @@ export class EventDetailComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
 
-  @Input({ required: true }) eventId!: string;
+  //@Input({ required: true }) eventId!: string;
 
   event?: Event;
 
@@ -48,7 +48,14 @@ export class EventDetailComponent implements OnInit {
   club?: Club;
 
   ngOnInit(): void {
-    this.eventService.getEventById(this.eventId).subscribe({
+    const routeEventId = this.route.snapshot.paramMap.get('eventId');
+
+    if (!routeEventId) {
+      console.error('eventId not found in route');
+      return;
+    }
+
+    this.eventService.getEventById(routeEventId).subscribe({
       next: (res) => {
         if (res.success) {
           this.event = res.data;
