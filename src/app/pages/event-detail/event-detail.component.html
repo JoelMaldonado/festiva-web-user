@@ -3,20 +3,19 @@
     <event-gradients />
     <div class="mx-auto max-w-7xl px-4 py-8 relative">
       <div class="grid gap-6 lg:grid-cols-3">
-        <event-banner
-          class="lg:col-span-2"
-          [eventImageUrl]="event?.image_url"
-        />
+        <event-banner class="lg:col-span-2" [eventImageUrl]="event?.image_url" />
 
-        <event-info
-          class="lg:col-span-1"
-          [eventId]="eventId"
-          [title]="event?.title"
-          [clubName]="club?.name"
-          [address]="firstLocation?.address"
-          [nextDate]="nextDate"
-          [ticketUrl]="event?.ticket_url"
-        />
+        @if (eventId) {
+          <event-info
+            class="lg:col-span-1"
+            [eventId]="eventId"
+            [title]="event?.title"
+            [clubName]="club?.name"
+            [address]="firstLocation?.address"
+            [nextDate]="nextDate"
+            [ticketUrl]="event?.ticket_url"
+          />
+        }
       </div>
     </div>
   </section>
@@ -25,19 +24,21 @@
     <div class="flex flex-col gap-8 lg:grid lg:grid-cols-3">
       <section class="flex flex-col gap-8 lg:col-span-2 w-full">
         <event-about [description]="event?.description" />
-        <event-schedule [eventId]="eventId" (nextDateChange)="onNextDateChange($event)" />
+        @if (eventId) {
+          <event-schedule [eventId]="eventId" (nextDateChange)="onNextDateChange($event)" />
+        }
         @if (firstLocation) {
-        <event-map
-          [address]="firstLocation.address"
-          [latitude]="firstLocation.latitude"
-          [longitude]="firstLocation.longitude"
-        />
+          <event-map
+            [address]="firstLocation.address"
+            [latitude]="firstLocation.latitude"
+            [longitude]="firstLocation.longitude"
+          />
         }
       </section>
 
       <aside class="flex flex-col gap-8 lg:col-span-1 w-full">
         @if (event?.club_id) {
-        <event-club [club]="club" />
+          <event-club [club]="club" />
         }
         <!--
         <event-report />

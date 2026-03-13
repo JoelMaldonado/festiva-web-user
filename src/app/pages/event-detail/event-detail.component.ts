@@ -39,6 +39,8 @@ export class EventDetailComponent implements OnInit {
 
   //@Input({ required: true }) eventId!: string;
 
+  eventId?: string;
+
   event?: Event;
 
   firstLocation?: any;
@@ -54,6 +56,8 @@ export class EventDetailComponent implements OnInit {
       console.error('eventId not found in route');
       return;
     }
+
+    this.eventId = routeEventId;
 
     this.eventService.getEventById(routeEventId).subscribe({
       next: (res) => {
