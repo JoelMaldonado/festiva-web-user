@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   imports: [],
   template: `
     <header
-      class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/80 border-b border-white/10"
+      class="sticky top-0 z-50 backdrop-blur supports-backdrop-filter:bg-neutral-950/80 border-b border-white/10"
     >
       <div class="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
         <!-- Logo -->
         <a href="/events" class="group inline-flex items-center gap-2">
           <div
-            class="h-8 w-8 rounded-xl bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 ring-2 ring-pink-400/50 glow-pink"
+            class="h-8 w-8 rounded-xl bg-linear-to-br from-pink-500 via-fuchsia-500 to-purple-600 ring-2 ring-pink-400/50 glow-pink"
           ></div>
           <span class="text-lg font-semibold tracking-tight ">
             <span class="text-white">Festiva</span>
