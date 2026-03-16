@@ -13,6 +13,7 @@ import { Event } from '../../core/models/event.model';
 import { ClubService } from '../../services/club.service';
 import { Club } from '../../core/models/club.model';
 import { Meta, Title } from '@angular/platform-browser';
+import { ApiResponse } from '../../core/models/api-response.model';
 
 @Component({
   selector: 'app-event-detail',
@@ -30,100 +31,66 @@ import { Meta, Title } from '@angular/platform-browser';
   templateUrl: './event-detail.component.html',
 })
 export class EventDetailComponent implements OnInit {
-  private readonly eventService = inject(EventService);
   private readonly clubService = inject(ClubService);
   private readonly titleSrv = inject(Title);
   private readonly metaSrv = inject(Meta);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
 
-  //@Input({ required: true }) eventId!: string;
-
   eventId?: string;
-
   event?: Event;
-
   firstLocation?: any;
-
   nextDate?: Date;
-
   club?: Club;
 
   ngOnInit(): void {
-    const routeEventId = this.route.snapshot.paramMap.get('eventId');
+    const res = this.route.snapshot.data['eventData'] as ApiResponse<Event>;
+    this.event = res.success ? res.data : undefined;
+    if (!this.event) return;
 
-    if (!routeEventId) {
-      console.error('eventId not found in route');
-      return;
+    this.eventId = String(this.event.id);
+
+    this.titleSrv.setTitle(`${this.event.title} | Festiva`);
+    const desc = (this.event.description || '').replace(/\s+/g, ' ').trim().slice(0, 160);
+    if (desc) {
+      this.metaSrv.updateTag({ name: 'description', content: desc });
     }
 
-    this.eventId = routeEventId;
-
-    this.eventService.getEventById(routeEventId).subscribe({
-      next: (res) => {
-        if (res.success) {
-          this.event = res.data;
-
-          // Title
-          this.titleSrv.setTitle(`${this.event.title} | Festiva`);
-
-          // Meta Description
-          const desc = (this.event.description || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-
-          if (desc) {
-            this.metaSrv.updateTag({ name: 'description', content: desc });
-          }
-
-          const currentSlug = this.route.snapshot.paramMap.get('slug');
-          const expectedSlug = slugify(this.event.title);
-
-          if (currentSlug !== expectedSlug) {
-            this.router.navigate(['/events', this.event.id, expectedSlug], {
-              replaceUrl: true,
-            });
-          }
-
-          this.getClub(this.event!.club_id);
-        } else {
-          console.error('Failed to load event', res.message);
-        }
-      },
-      error: (err) => {
-        console.error('Error fetching event', err);
-      },
-    });
+    const currentSlug = this.route.snapshot.paramMap.get('slug');
+    const expectedSlug = slugify(this.event.title);
+    if (currentSlug !== expectedSlug) {
+      this.router.navigate(['/events', this.event.id, expectedSlug], {
+        replaceUrl: true,
+      });
+    }
+    
+    this.loadClub(this.event.club_id);
   }
 
-  getClub(clubId: number) {
+  private loadClub(clubId: number): void {
     this.clubService.getClubById(clubId).subscribe({
       next: (res) => {
         if (res.success) {
           this.club = res.data;
-          this.getAddress();
-        } else {
-          console.error('Failed to load club data', res.message);
+          this.loadAddress();
         }
       },
-      error: (err) => {
-        console.error('Failed to load club data', err);
-      },
+      error: (err) => console.error('Failed to load club', err),
     });
   }
 
-  getAddress() {
+  private loadAddress(): void {
     this.clubService.getAllLocationsByClubId(this.club!.id).subscribe({
       next: (res) => {
         if (res.success) {
-          this.firstLocation = res.data[0] || undefined;
+          this.firstLocation = res.data[0] ?? undefined;
         }
       },
-      error: (err) => {
-        console.error('Error fetching club locations', err);
-      },
+      error: (err) => console.error('Error fetching locations', err),
     });
   }
 
-  onNextDateChange(date?: Date) {
+  onNextDateChange(date?: Date): void {
     this.nextDate = date;
   }
 }

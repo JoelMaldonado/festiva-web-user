@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ApiResponse } from '../core/models/api-response.model';
 import { Event } from '../core/models/event.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class EventService {
     return this.httpClient.get<ApiResponse<Event[]>>(`${this.baseUrl}/`);
   }
 
-  getEventById(eventId: string) {
+  getEventById(eventId: string): Observable<ApiResponse<Event>> {
     return this.httpClient.get<ApiResponse<Event>>(`${this.baseUrl}/${eventId}`);
   }
 

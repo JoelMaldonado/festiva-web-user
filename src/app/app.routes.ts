@@ -6,6 +6,7 @@ import { EventDashboardPage } from './pages/event-dashboard/event-dashboard.comp
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { EventListComponent } from './pages/event-list/event-list.component';
 import { PoliciesComponent } from './pages/policies/policies.component';
+import { eventResolver } from './resolvers/event.resolver';
 
 export const routes: Routes = [
   {
@@ -27,10 +28,12 @@ export const routes: Routes = [
   {
     path: 'events/:eventId',
     component: EventDetailComponent,
+    resolve: { eventData: eventResolver },
   },
   {
     path: 'events/:eventId/:slug',
     component: EventDetailComponent,
+    resolve: { eventData: eventResolver },
   },
   {
     path: 'clubs',
