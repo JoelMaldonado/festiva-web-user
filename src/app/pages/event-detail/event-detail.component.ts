@@ -63,7 +63,7 @@ export class EventDetailComponent implements OnInit {
         replaceUrl: true,
       });
     }
-    
+
     this.loadClub(this.event.club_id);
   }
 
