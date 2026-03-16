@@ -8,9 +8,9 @@ import { HeaderComponent } from './shared/ui/header.component';
   imports: [RouterOutlet, FooterComponent, HeaderComponent],
   template: `
     <div class="bg-neutral-800">
-      <!-- <app-header /> -->
+      <app-header />
       <router-outlet />
-      <!-- <app-footer /> -->
+      <app-footer />
     </div>
   `,
 })

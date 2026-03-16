@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
+import packageInfo from '../../../../package.json';
 
 @Component({
   standalone: true,
   selector: 'app-footer',
   imports: [],
   template: `
-    <footer id="footer" class="bg-b1 py-16 md:py-0 md:h-[300px] flex items-center justify-center">
+    <footer class="bg-b1 py-16 md:py-0 md:h-75 flex flex-col items-center justify-center">
       <div
         class="flex flex-col md:flex-row items-start w-[90%] max-w-7xl gap-y-12 gap-x-8 text-white"
       >
         <!-- Logo e introducción -->
         <div class="md:w-1/3">
-          <img src="images/logo1.png" alt="" class="w-[150px]" />
+          <img src="images/logo1.png" alt="" class="w-37.5" />
           <span class="block mt-4 text-[16px] font-bold"> A new way to own the night </span>
           <p class="text-[16px] mt-2">
             Events, clubs, and unforgettable experiences, all in one place.
@@ -74,16 +75,19 @@ import { Component } from '@angular/core';
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="icons/app_store.svg" alt="App Store" class="mb-2 h-[50px]" />
+            <img src="icons/app_store.svg" alt="App Store" class="mb-2 h-12.5" />
           </a>
           <a
             href="https://play.google.com/store/apps/details?id=com.festiva.core&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="icons/google_play.svg" alt="Google Play" class="h-[50px]" />
+            <img src="icons/google_play.svg" alt="Google Play" class="h-12.5" />
           </a>
         </div>
+      </div>
+      <div class="w-full border-t border-white/10 mt-10 pt-4 text-center text-white/40 text-sm">
+        © {{ currentYear }} Festiva • v{{ version }}
       </div>
     </footer>
   `,
@@ -92,4 +96,6 @@ export class FooterComponent {
   get currentYear(): number {
     return new Date().getFullYear();
   }
+
+  version = packageInfo.version;
 }
