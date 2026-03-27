@@ -2,7 +2,6 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import {
   provideRouter,
   withComponentInputBinding,
-  withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -12,7 +11,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withComponentInputBinding(), withEnabledBlockingInitialNavigation()),
+    provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
   ],

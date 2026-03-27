@@ -31,7 +31,7 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
-              "allowedHosts": []
+              "allowedHosts": ["app.festiva.no"]
             },
             "ssr": {
               "entry": "src/server.ts"

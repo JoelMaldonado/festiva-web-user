@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { EventAboutComponent } from './components/about.component';
 import { EventScheduleComponent } from './components/schedule.component';
@@ -36,6 +36,7 @@ export class EventDetailComponent implements OnInit {
   private readonly metaSrv = inject(Meta);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
+  private readonly platformId = inject(PLATFORM_ID);
 
   eventId?: string;
   event?: Event;
@@ -56,12 +57,14 @@ export class EventDetailComponent implements OnInit {
       this.metaSrv.updateTag({ name: 'description', content: desc });
     }
 
-    const currentSlug = this.route.snapshot.paramMap.get('slug');
-    const expectedSlug = slugify(this.event.title);
-    if (currentSlug !== expectedSlug) {
-      this.router.navigate(['/events', this.event.id, expectedSlug], {
-        replaceUrl: true,
-      });
+    if (isPlatformBrowser(this.platformId)) {
+      const currentSlug = this.route.snapshot.paramMap.get('slug');
+      const expectedSlug = slugify(this.event.title);
+      if (currentSlug !== expectedSlug) {
+        this.router.navigate(['/events', this.event.id, expectedSlug], {
+          replaceUrl: true,
+        });
+      }
     }
 
     this.loadClub(this.event.club_id);

@@ -20,9 +20,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  // 👇 Forzar el host correcto para que Angular SSR no lo rechace
-  req.headers['x-forwarded-host'] = 'app.festiva.no';
-  req.headers['x-forwarded-proto'] = 'https';
+  if (process.env['NODE_ENV'] === 'production') {
+    req.headers['x-forwarded-host'] = 'app.festiva.no';
+    req.headers['x-forwarded-proto'] = 'https';
+  }
 
   angularApp
     .handle(req)

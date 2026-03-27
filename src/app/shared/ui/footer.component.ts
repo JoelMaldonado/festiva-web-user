@@ -99,3 +99,21 @@ export class FooterComponent {
 
   version = packageInfo.version;
 }
+
+
+// Aqui busca el api de reniec y dime como se usa para implementar en esta funcion
+function searchDniReniec(dni: string): Promise<any> {
+  const apiUrl = `https://api.reniec.com/dni/${dni}`;
+
+  return fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al buscar DNI');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error en la búsqueda de DNI:', error);
+      throw error;
+    });
+}
