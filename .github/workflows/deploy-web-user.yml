@@ -47,6 +47,10 @@ jobs:
             set -e
             cd /var/www/festiva-web-user
 
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm use 22
+
             echo "✅ Archivos recibidos"
             ls -lah
             ls -lah dist/festiva-web-user
@@ -54,17 +58,14 @@ jobs:
 
             npm ci --omit=dev
 
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-            nvm use 22
-
             which node
             which npm
-
             which pm2
 
             pm2 delete festiva-web-user || true
-            PORT=4000 pm2 start dist/festiva-web-user/server/server.mjs --name festiva-web-user
+            PORT=4000 NODE_ENV=production pm2 start dist/festiva-web-user/server/server.mjs \
+              --name festiva-web-user \
+              --update-env
             pm2 save
 
             systemctl reload nginx || echo "⚠️ No se pudo recargar nginx"

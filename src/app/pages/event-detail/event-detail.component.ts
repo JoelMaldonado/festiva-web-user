@@ -12,8 +12,8 @@ import { EventService } from '../../services/event.service';
 import { Event } from '../../core/models/event.model';
 import { ClubService } from '../../services/club.service';
 import { Club } from '../../core/models/club.model';
-import { Meta, Title } from '@angular/platform-browser';
 import { ApiResponse } from '../../core/models/api-response.model';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -32,8 +32,7 @@ import { ApiResponse } from '../../core/models/api-response.model';
 })
 export class EventDetailComponent implements OnInit {
   private readonly clubService = inject(ClubService);
-  private readonly titleSrv = inject(Title);
-  private readonly metaSrv = inject(Meta);
+  private readonly seoService = inject(SeoService);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly platformId = inject(PLATFORM_ID);
@@ -51,17 +50,22 @@ export class EventDetailComponent implements OnInit {
 
     this.eventId = String(this.event.id);
 
-    this.titleSrv.setTitle(`${this.event.title} | Festiva`);
+    const slug = slugify(this.event.title);
+    const canonicalUrl = `https://app.festiva.no/events/${this.event.id}/${slug}`;
     const desc = (this.event.description || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    if (desc) {
-      this.metaSrv.updateTag({ name: 'description', content: desc });
-    }
+
+    this.seoService.set({
+      title: this.event.title,
+      description: desc || undefined,
+      canonicalUrl,
+      image: this.event.image_url,
+      type: 'article',
+    });
 
     if (isPlatformBrowser(this.platformId)) {
       const currentSlug = this.route.snapshot.paramMap.get('slug');
-      const expectedSlug = slugify(this.event.title);
-      if (currentSlug !== expectedSlug) {
-        this.router.navigate(['/events', this.event.id, expectedSlug], {
+      if (currentSlug !== slug) {
+        this.router.navigate(['/events', this.event.id, slug], {
           replaceUrl: true,
         });
       }
